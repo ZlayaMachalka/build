@@ -2,6 +2,7 @@
 BOARD_NAME="H96 Max M9S"
 BOARD_VENDOR="h96"
 BOARDFAMILY="rk35xx"
+BOOTCONFIG="armsom-sige5-rk3576_defconfig"
 
 KERNEL_TARGET="vendor,edge"
 FULL_DESKTOP="no"
