@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Armbian image
+        env:
+          PREFER_DOCKER: "no"
         run: |
           ./compile.sh \
             BOARD=h96-m9s \
