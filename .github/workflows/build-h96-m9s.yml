@@ -1,0 +1,28 @@
+name: Build H96 M9S Armbian
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Armbian image
+        run: |
+          sudo ./compile.sh \
+            BOARD=h96-m9s \
+            BRANCH=vendor \
+            RELEASE=bookworm \
+            BUILD_MINIMAL=yes \
+            BUILD_DESKTOP=no \
+            KERNEL_CONFIGURE=no
+
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: h96-m9s-armbian
+          path: output/images/*
